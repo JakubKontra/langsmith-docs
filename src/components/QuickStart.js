@@ -253,6 +253,42 @@ chain.invoke({"question": question, "context": context})`}
   );
 }
 
+export function ConfigureLangChainEnvironmentCodeTabs() {
+  const envVars = `export LANGCHAIN_TRACING_V2=true
+export LANGCHAIN_API_KEY=<your-api-key>
+# The below examples use the OpenAI API, though it's not necessary in general
+export OPENAI_API_KEY=<your-openai-api-key>`;
+  const typescriptFootnote = `If you are using LangChain.js with LangSmith and are not in a serverless environment, we also recommend setting the following explicitly to reduce latency:
+
+\`export LANGCHAIN_CALLBACKS_BACKGROUND=true\`
+
+If you are in a serverless environment, we recommend setting the reverse to allow tracing to finish before your function ends:
+
+\`export LANGCHAIN_CALLBACKS_BACKGROUND=false\`
+
+See [this LangChain.js guide](https://js.langchain.com/docs/how_to/callbacks_serverless) for more information.`;
+  return (
+    <CodeTabs
+      tabs={[
+        {
+          value: "python",
+          label: "Python",
+          language: "bash",
+          content: envVars,
+        },
+        {
+          value: "typescript",
+          label: "TypeScript",
+          language: "bash",
+          content: envVars,
+          footnote: typescriptFootnote,
+        },
+      ]}
+      groupId="client-language"
+    />
+  );
+}
+
 const TraceableQuickStart = PythonBlock(`from typing import Any, Iterable\n
 import openai
 from langsmith import traceable

@@ -24,20 +24,6 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
 
-  plugins: [
-    [
-      "@scalar/docusaurus",
-      {
-        label: "LangSmith API Docs",
-        route: "/api-docs",
-        configuration: {
-          spec: {
-            url: "https://api.smith.langchain.com/openapi.json",
-          },
-        },
-      },
-    ],
-  ],
   markdown: {
     mermaid: true,
   },
@@ -49,15 +35,18 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          lastVersion: "current",
+          lastVersion: "2.0",
           versions: {
             current: {
-              label: "1.0",
+              label: "old",
+              path: "old",
               badge: false,
+              banner: "unmaintained",
             },
             "2.0": {
-              label: "2.0",
-              banner: "unreleased",
+              label: "stable",
+              banner: "none",
+              badge: false,
             },
           },
           sidebarPath: require.resolve("./sidebars.js"),
@@ -123,9 +112,18 @@ const config = {
             position: "right",
           },
           {
+            type: "custom-RegionSelector",
+            position: "right",
+          },
+          {
             href: "https://smith.langchain.com/",
             label: "Go to App",
             position: "right",
+          },
+          {
+            href: "https://api.smith.langchain.com/redoc",
+            label: "Go to API Docs",
+            position: "left",
           },
         ],
       },

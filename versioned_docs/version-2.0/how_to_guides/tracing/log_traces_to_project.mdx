@@ -16,7 +16,7 @@ You can change the destination project of your traces both statically through en
 
 ## Set the destination project statically
 
-As mentioned in the [Concepts](/tracing/concepts) section, LangSmith uses the concept of a `Project` to group traces. If left unspecified, the project is set to `default`. You can set the `LANGCHAIN_PROJECT` environment variable to configure a custom project name for an entire application run. This should be done before executing your application.
+As mentioned in the [Tracing Concepts](/concepts/tracing#projects) section, LangSmith uses the concept of a `Project` to group traces. If left unspecified, the project is set to `default`. You can set the `LANGCHAIN_PROJECT` environment variable to configure a custom project name for an entire application run. This should be done before executing your application.
 
 ```bash
 export LANGCHAIN_PROJECT=my-custom-project
@@ -64,7 +64,7 @@ call_openai(messages)\n
 call_openai(
     messages,
     # highlight-next-line
-    langsmith_extra={"project_name": "My Overriden Project"},
+    langsmith_extra={"project_name": "My Overridden Project"},
 )\n
 # The wrapped OpenAI client accepts all the same langsmith_extra parameters
 # as @traceable decorated functions, and logs traces to LangSmith automatically.
@@ -92,7 +92,7 @@ chat_completion = client.chat.completions.create(
 )
 # End and submit the run
 rt.end(outputs=chat_completion)
-rt.post()
+rt.postRun()
 `),
     TypeScriptBlock(`import OpenAI from "openai";
 import { traceable } from "langsmith/traceable";
@@ -124,10 +124,11 @@ const rt = new RunTree({
     inputs: { messages },
     // highlight-next-line
     project_name: "My Project"
-});\n
+});
+await rt.postRun();\n
 // Execute a chat completion and handle it within RunTree
 rt.end({outputs: chatCompletion});
-await rt.postRun();`),
+await rt.patchRun();`),
   ]}
   groupId="client-language"
 />

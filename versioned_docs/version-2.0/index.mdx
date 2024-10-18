@@ -23,6 +23,7 @@ import {
 } from "@site/src/components/QuickStart";
 import { ClientInstallationCodeTabs } from "@site/src/components/ClientInstallation";
 import DocCardList from "@theme/DocCardList";
+import { RegionalUrl } from "@site/src/components/RegionalUrls";
 
 # Get started with LangSmith
 
@@ -42,7 +43,7 @@ import DocCardList from "@theme/DocCardList";
       value: "typescript",
       label: "TypeScript",
       language: "bash",
-      content: `yarn add langchain langsmith`,
+      content: `yarn add langsmith`,
     },
   ]}
   groupId="client-language"
@@ -50,7 +51,7 @@ import DocCardList from "@theme/DocCardList";
 
 ## 2. Create an API key
 
-To create an API key head to the [Settings page](https://smith.langchain.com/settings). Then click **Create API Key.**
+To create an API key head to the <RegionalUrl text='Settings page' suffix='/settings' />. Then click **Create API Key.**
 
 ## 3. Set up your environment
 
@@ -58,11 +59,15 @@ To create an API key head to the [Settings page](https://smith.langchain.com/set
 
 ## 4. Log your first trace
 
-<p>
-  We provide multiple ways to log traces to LangSmith. Below, we'll highlight
-  how to use <code>traceable</code>. See more on the{" "}
-  <a href="./tracing/integrations">Integrations</a> page.
-</p>
+:::tip Tracing to LangSmith for LangChain users
+There is no need to use the LangSmith SDK directly if your application is built entirely on LangChain (either Python and JS).
+
+We've outlined a tracing guide specifically for LangChain users [here](./how_to_guides/tracing/trace_with_langchain).
+:::
+
+We provide multiple ways to log traces to LangSmith. Below, we'll highlight
+how to use `traceable`. See more on the [Annotate code for tracing](./how_to_guides/tracing/annotate_code) page.
+
 <CodeTabs
   tabs={[
     {

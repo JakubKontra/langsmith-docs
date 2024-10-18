@@ -8,9 +8,11 @@ Explanations, clarification and discussion of key topics in LangSmith.
 - [Workspaces](./concepts/admin#workspaces)
 - [Users](./concepts/admin#users)
 - [API keys](./concepts/admin#api-keys)
-- [Personal Access Tokens (PATs)](./concepts/admin#personal-access-tokens-pats)
-- [Service keys](./concepts/admin#service-keys)
+  - [Personal Access Tokens (PATs)](./concepts/admin#personal-access-tokens-pats)
+  - [Service keys](./concepts/admin#service-keys)
 - [Roles](./concepts/admin#roles)
+  - [Organization roles](./concepts/admin#organization-roles)
+  - [Workspace roles](./concepts/admin#workspace-roles)
 
 ## Tracing
 
@@ -26,3 +28,13 @@ Explanations, clarification and discussion of key topics in LangSmith.
 - [Datasets and examples](./concepts/evaluation#datasets-and-examples)
 - [Experiments](./concepts/evaluation#experiments)
 - [Evaluators](./concepts/evaluation#evaluators)
+
+## Prompts
+
+- [Prompt types](./concepts/prompts#prompt-types)
+- [Template formats](./concepts/prompts#template-formats)
+
+## Usage and Billing
+
+- [Data Retention](./concepts/usage_and_billing/data_retention_billing)
+- [Usage Limits](./concepts/usage_and_billing/usage_limits)
